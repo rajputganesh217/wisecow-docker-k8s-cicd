@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: wisecow
-          image: rajput2117/mydocker_repo1:wisecow:fixed        # use the local image name
-          imagePullPolicy: IfNotPresent # don't try to pull from registry
+          image: rajput2117/wisecow:latest
+          imagePullPolicy: Always   # Always pull latest image
           ports:
             - containerPort: 4499
