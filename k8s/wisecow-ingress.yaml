@@ -3,11 +3,11 @@ kind: Ingress
 metadata:
   name: wisecow-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
-  ingressClassName: nginx
   rules:
-    - host:  # leave empty if using IP
+    - host: wisecow.example.com   # Replace with your domain
       http:
         paths:
           - path: /
@@ -17,3 +17,7 @@ spec:
                 name: wisecow-service
                 port:
                   number: 4499
+  tls:
+    - hosts:
+        - wisecow.example.com
+      secretName: wisecow-tls
