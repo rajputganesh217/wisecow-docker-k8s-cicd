@@ -1,27 +1,27 @@
-# Use a common base image
+# Base image
 FROM ubuntu:22.04
 
-# Add the /usr/games directory to the system's PATH
+# Add the /usr/games directory to PATH
 ENV PATH="/usr/games:${PATH}"
 
-# Install ALL of the application's dependencies
+# Install application dependencies
 RUN apt-get update && apt-get install -y \
     fortune \
     cowsay \
     netcat-traditional \
     && rm -rf /var/lib/apt/lists/*
 
-# Set the working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy your script into the container
+# Copy application script
 COPY wisecow.sh .
 
-# Make the script executable
+# Make it executable
 RUN chmod +x wisecow.sh
 
-# Expose the port the server listens on
+# Expose the port the app listens on
 EXPOSE 4499
 
-# The command to run when the container starts
+# Start the application
 CMD ["./wisecow.sh"]
