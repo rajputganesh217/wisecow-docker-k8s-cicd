@@ -15,7 +15,7 @@ sudo apt install fortune-mod cowsay -y
 ![wisecow](https://github.com/nyrahul/wisecow/assets/9133227/8d6bfde3-4a5a-480e-8d55-3fef60300d98)
 
 # Problem Statement
-Deploy the wisecow application as a k8s app .
+Deploy the wisecow application as a k8s app 
 
 ## Requirement
 1. Create Dockerfile for the image and corresponding k8s manifest to deploy in k8s env. The wisecow service should be exposed as k8s service.
